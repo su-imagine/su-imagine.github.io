@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hello World | Hexo</title>
+  <title>多列数据的排序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. ¶Quic">
+  <meta name="description" content="工作中遇到了一个问题：有一个类似表格的dom结构，实际上完全可以当作表格，需要根据其中的两个列排序，包含逆序和顺序，记录一下当时的解决方案  因为原始的数据是数组类型的，所以使用数组的 sort() 方法比较方便,具体的使用方法详见MDN，因为是有可能是需要通过两个参数去排序，所以可以将这两个列的点击事件注册一下。使用的是vue框架，这里html部分就不写了，主要看JS逻辑 12345678910">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/06/25/hello-world/index.html">
+<meta property="og:title" content="多列数据的排序">
+<meta property="og:url" content="http://example.com/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. ¶Quic">
+<meta property="og:description" content="工作中遇到了一个问题：有一个类似表格的dom结构，实际上完全可以当作表格，需要根据其中的两个列排序，包含逆序和顺序，记录一下当时的解决方案  因为原始的数据是数组类型的，所以使用数组的 sort() 方法比较方便,具体的使用方法详见MDN，因为是有可能是需要通过两个参数去排序，所以可以将这两个列的点击事件注册一下。使用的是vue框架，这里html部分就不写了，主要看JS逻辑 12345678910">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-25T14:59:36.572Z">
-<meta property="article:modified_time" content="2021-06-25T14:59:36.573Z">
+<meta property="article:published_time" content="2021-06-28T15:01:02.000Z">
+<meta property="article:modified_time" content="2021-06-28T16:09:47.626Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,40 +154,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-多列数据的排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      多列数据的排序
     </h1>
   
 
         
-        <a href="/2021/06/25/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-25T14:59:36.572Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
+        <a href="/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+  	<time datetime="2021-06-28T15:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
-<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>工作中遇到了一个问题：有一个类似表格的dom结构，实际上完全可以当作表格，需要根据其中的两个列排序，包含逆序和顺序，记录一下当时的解决方案</p>
+<hr />
+<p>因为原始的数据是数组类型的，所以使用数组的 <code>sort()</code> 方法比较方便,具体的使用方法详见<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">MDN</a>，因为是有可能是需要通过两个参数去排序，所以可以将这两个列的点击事件注册一下。使用的是vue框架，这里html部分就不写了，主要看JS逻辑</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册在列上的方法</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  orderType: 排序的类型 1：正序，-1：逆序，0：不排序</span></span><br><span class="line"><span class="comment">  col是当前点击的列项</span></span><br><span class="line"><span class="comment">  data: 表格的数据</span></span><br><span class="line"><span class="comment">  originData: 深拷贝一份表格数据</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="title">sortTable</span>(<span class="params">col</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(col.orderType === <span class="literal">undefined</span> || col.orderType === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 深拷贝一份表格的数据</span></span><br><span class="line">    <span class="built_in">this</span>.originData = cloneDeep(<span class="built_in">this</span>.data);</span><br><span class="line">    <span class="built_in">this</span>.$set(col,<span class="string">&quot;orderType&quot;</span>,<span class="number">1</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(col.orderType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$set(col, <span class="string">&quot;orderType&quot;</span>, -<span class="number">1</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(col.orderType === -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$set(col, <span class="string">&quot;orderType&quot;</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这里是将当前排序的列放到一个orderColList的数组中</span></span><br><span class="line">  <span class="comment">// 如果已经存在，那么删除掉原来位置的，重新添加到orderColList的第一项</span></span><br><span class="line">  <span class="comment">// 如果当前列需要排序（正序或者逆序），那么就放到第一个，这样后面排序的时候也是先根据这一列的顺序来的</span></span><br><span class="line">  <span class="keyword">const</span> ind = <span class="built_in">this</span>.orderColList.find(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> c.prop === col.prop</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span>(ind !== -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.orderColList.splice(ind,<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(col.orderType !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.orderColList.unshift(col);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果发现每一个排序列都是0，那么就是都不排序，就按照原来保存的顺序来</span></span><br><span class="line">  <span class="keyword">const</span> isOrigin = <span class="built_in">this</span>.orderColList.every(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> c.orderType === <span class="number">0</span> || c.orderType === <span class="literal">undefined</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span>(isOrigin) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.originData) &#123;</span><br><span class="line">      <span class="built_in">this</span>.data = <span class="built_in">this</span>.originData;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 这个就是排序的方法</span></span><br><span class="line">  <span class="built_in">this</span>.sortData(<span class="built_in">this</span>.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上面的代码，表格数据的排序，需要利用表格列项，需要用到一个数组（orderColList）存放排序的列，并且orderColList是有顺序的，毕竟多个列排序的时候会有一个主要，次要。</p>
+<p>sortData方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortData</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用原生JS的sort排序方法，orderFun就是我们排序的依照,sort接收的参数是一个function，那么this.orderFun()返回的必然也是一个function</span></span><br><span class="line">  arr.sort(<span class="built_in">this</span>.orderFun())</span><br><span class="line">  <span class="comment">// 如果表格存在树结构，那么其子项也需要排序，用到简单的递归</span></span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.children &amp;&amp; item.children.length) &#123;</span><br><span class="line">      <span class="built_in">this</span>.sortData(item.children)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里首先返回一个funtion,原因看上面</span></span><br><span class="line"><span class="comment">我们根据排序的逻辑，就是按照之前保存的orderColList这个方法来，越靠前的，我们越根据他的顺序，只有第0个的值相同，那么我们考虑下一个orderColList中的列，实现的根据后点击的列排序</span></span><br><span class="line"><span class="comment">如果发现这个列是不排序的，那么直接下一个就好</span></span><br><span class="line"><span class="comment">完全相同，return 0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">orderFun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; orderColList &#125; = <span class="built_in">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;orderColList.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(orderColList[i].orderType === <span class="number">0</span>) &#123;  <span class="comment">// 如果发现这个列是不排序的，那么直接下一个就好</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(a[orderColList[i][<span class="string">&quot;prop&quot;</span>]] &gt; b[orderColList[i][<span class="string">&quot;prop&quot;</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> orderColList[i].orderType</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span> * orderColList[i].orderType</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr />
+<p>到这里，这个根据多列的排序就算完成了，我的项目中是只需要两列，但是由于操作是用户的，所以不清楚究竟他会先点击哪一列，或者是在何种状态下点击某一列，因此，我们用了一个数组记录，按照这个数组顺序作为排序的主从，从而实现了多列的排序。</p>
+<p>网上看到的多列排序大部分都是对一个结果进行已经规定好的分别每项已什么顺序来，如果根据现在的方法，只需要在表格的items项中配置几个参数即可。</p>
 
       
 
@@ -267,7 +263,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/25/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -281,15 +277,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          学习一下markdown语法
-        
-      </div>
-    </a>
   
+    <a href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">学习一下markdown语法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
