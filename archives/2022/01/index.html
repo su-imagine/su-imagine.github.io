@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Archives: 2022/1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/archives/2022/01/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -152,300 +152,47 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-算法题/数组移动0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/22/%E7%AE%97%E6%B3%95%E9%A2%98/%E6%95%B0%E7%BB%84%E7%A7%BB%E5%8A%A80/">数组移动0到末尾</a>
-    </h1>
-  
-
-        
-        <a href="/2022/01/22/%E7%AE%97%E6%B3%95%E9%A2%98/%E6%95%B0%E7%BB%84%E7%A7%BB%E5%8A%A80/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/01/22/%E7%AE%97%E6%B3%95%E9%A2%98/%E6%95%B0%E7%BB%84%E7%A7%BB%E5%8A%A80/" class="archive-article-date">
   	<time datetime="2022-01-22T06:30:37.688Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-01-22</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="问题"><a class="header-anchor" href="#问题">¶</a>问题</h3>
-<blockquote>
-<p>有一个数组由整数组成，不定长，无序，其中有若干个0，要求将所有的0移动到数组的最后，并且其他的数据保持其原先的相对顺序，算法中不生成新数组，在原来数组中排序例如</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<h4 id="方法1"><a class="header-anchor" href="#方法1">¶</a>方法1</h4>
-<p>循环数组，遇到0，则把这个位置的0删掉，在数组的最后push一个0，需要注意到的是删除0后，原数组的循环位置要还原</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function moveZero(arr) &#123;</span></span><br><span class="line"><span class="comment">// 	let j = 0;</span></span><br><span class="line"><span class="comment">//   for(let i=0; i&lt; arr.length; i++) &#123;</span></span><br><span class="line"><span class="comment">//     if(arr[i] === 0) &#123;</span></span><br><span class="line"><span class="comment">//       arr.splice(i, 1);</span></span><br><span class="line"><span class="comment">//       j++;</span></span><br><span class="line"><span class="comment">//       i--; // 注意这里</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   for(let i=0; i&lt;j;i++) &#123;</span></span><br><span class="line"><span class="comment">//   	arr.push(0)</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   return arr;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面的方法可以优化一下，就是因为每次splice都会改变当前遍历数组的i,实际上不需要遍历到数组的末尾，而是遍历到数组的arr.length-j即可</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveZero</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> j=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;arr.length -j; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i] === <span class="number">0</span>) &#123;</span><br><span class="line">      arr.splice(i, <span class="number">1</span>);</span><br><span class="line">      arr.push(<span class="number">0</span>);</span><br><span class="line">      j++;</span><br><span class="line">      i--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="方法2"><a class="header-anchor" href="#方法2">¶</a>方法2</h4>
-<p>循环数组，遇到0，记录当前0的总数量+1，到下一个不为0的地方，把当前位置的数值的位置减去当前0的总数量的位置，双方互换值；这个方法就是从头还是把0都逐渐聚集在一起，遇到一个不为0的数，就把这个数替换到<em>连续0</em>的第一个，这样可以看成这个0的串向后移动了一位</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">moveZero</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt; arr.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(arr[i] === <span class="number">0</span>) &#123;</span><br><span class="line">      index++;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(index &gt; <span class="number">0</span>)&#123;</span><br><span class="line">      arr[i-index] = arr[i];</span><br><span class="line">      arr[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/01/22/%E7%AE%97%E6%B3%95%E9%A2%98/%E6%95%B0%E7%BB%84%E7%A7%BB%E5%8A%A80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-多列数据的排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/">多列数据的排序</a>
+      <a class="archive-article-title" href="/2022/01/22/%E7%AE%97%E6%B3%95%E9%A2%98/%E6%95%B0%E7%BB%84%E7%A7%BB%E5%8A%A80/">数组移动0到末尾</a>
     </h1>
   
 
-        
-        <a href="/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/" class="archive-article-date">
-  	<time datetime="2021-06-28T15:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>工作中遇到了一个问题：有一个类似表格的dom结构，实际上完全可以当作表格，需要根据其中的两个列排序，包含逆序和顺序，记录一下当时的解决方案</p>
-<hr />
-<p>因为原始的数据是数组类型的，所以使用数组的 <code>sort()</code> 方法比较方便,具体的使用方法详见<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">MDN</a>，因为是有可能是需要通过两个参数去排序，所以可以将这两个列的点击事件注册一下。使用的是vue框架，这里html部分就不写了，主要看JS逻辑</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册在列上的方法</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  orderType: 排序的类型 1：正序，-1：逆序，0：不排序</span></span><br><span class="line"><span class="comment">  col是当前点击的列项</span></span><br><span class="line"><span class="comment">  data: 表格的数据</span></span><br><span class="line"><span class="comment">  originData: 深拷贝一份表格数据</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="title">sortTable</span>(<span class="params">col</span>)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(col.orderType === <span class="literal">undefined</span> || col.orderType === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 深拷贝一份表格的数据</span></span><br><span class="line">    <span class="built_in">this</span>.originData = cloneDeep(<span class="built_in">this</span>.data);</span><br><span class="line">    <span class="built_in">this</span>.$set(col,<span class="string">&quot;orderType&quot;</span>,<span class="number">1</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(col.orderType === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$set(col, <span class="string">&quot;orderType&quot;</span>, -<span class="number">1</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(col.orderType === -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.$set(col, <span class="string">&quot;orderType&quot;</span>, <span class="number">0</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这里是将当前排序的列放到一个orderColList的数组中</span></span><br><span class="line">  <span class="comment">// 如果已经存在，那么删除掉原来位置的，重新添加到orderColList的第一项</span></span><br><span class="line">  <span class="comment">// 如果当前列需要排序（正序或者逆序），那么就放到第一个，这样后面排序的时候也是先根据这一列的顺序来的</span></span><br><span class="line">  <span class="keyword">const</span> ind = <span class="built_in">this</span>.orderColList.find(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> c.prop === col.prop</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span>(ind !== -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.orderColList.splice(ind,<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(col.orderType !== <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>.orderColList.unshift(col);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 如果发现每一个排序列都是0，那么就是都不排序，就按照原来保存的顺序来</span></span><br><span class="line">  <span class="keyword">const</span> isOrigin = <span class="built_in">this</span>.orderColList.every(<span class="function"><span class="params">c</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> c.orderType === <span class="number">0</span> || c.orderType === <span class="literal">undefined</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span>(isOrigin) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.originData) &#123;</span><br><span class="line">      <span class="built_in">this</span>.data = <span class="built_in">this</span>.originData;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 这个就是排序的方法</span></span><br><span class="line">  <span class="built_in">this</span>.sortData(<span class="built_in">this</span>.data);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过上面的代码，表格数据的排序，需要利用表格列项，需要用到一个数组（orderColList）存放排序的列，并且orderColList是有顺序的，毕竟多个列排序的时候会有一个主要，次要。</p>
-<p>sortData方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortData</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 使用原生JS的sort排序方法，orderFun就是我们排序的依照,sort接收的参数是一个function，那么this.orderFun()返回的必然也是一个function</span></span><br><span class="line">  arr.sort(<span class="built_in">this</span>.orderFun())</span><br><span class="line">  <span class="comment">// 如果表格存在树结构，那么其子项也需要排序，用到简单的递归</span></span><br><span class="line">  arr.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(item.children &amp;&amp; item.children.length) &#123;</span><br><span class="line">      <span class="built_in">this</span>.sortData(item.children)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这里首先返回一个funtion,原因看上面</span></span><br><span class="line"><span class="comment">我们根据排序的逻辑，就是按照之前保存的orderColList这个方法来，越靠前的，我们越根据他的顺序，只有第0个的值相同，那么我们考虑下一个orderColList中的列，实现的根据后点击的列排序</span></span><br><span class="line"><span class="comment">如果发现这个列是不排序的，那么直接下一个就好</span></span><br><span class="line"><span class="comment">完全相同，return 0</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">orderFun</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; orderColList &#125; = <span class="built_in">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">a,b</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;orderColList.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(orderColList[i].orderType === <span class="number">0</span>) &#123;  <span class="comment">// 如果发现这个列是不排序的，那么直接下一个就好</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(a[orderColList[i][<span class="string">&quot;prop&quot;</span>]] &gt; b[orderColList[i][<span class="string">&quot;prop&quot;</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> orderColList[i].orderType</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span> * orderColList[i].orderType</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr />
-<p>到这里，这个根据多列的排序就算完成了，我的项目中是只需要两列，但是由于操作是用户的，所以不清楚究竟他会先点击哪一列，或者是在何种状态下点击某一列，因此，我们用了一个数组记录，按照这个数组顺序作为排序的主从，从而实现了多列的排序。</p>
-<p>网上看到的多列排序大部分都是对一个结果进行已经规定好的分别每项已什么顺序来，如果根据现在的方法，只需要在表格的items项中配置几个参数即可。</p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/28/%E5%A4%9A%E5%88%97%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%92%E5%BA%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-学习一下markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/">学习一下markdown语法</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2021-06-25T15:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="导航"><a class="header-anchor" href="#导航">¶</a>导航</h2>
-<ul>
-<li><a href="#link">链接</a></li>
-<li><a href="#images">图片</a></li>
-<li><a href="#%E5%BC%95%E7%94%A8">引用</a></li>
-<li><a href="#%E7%B2%97%E4%BD%93">粗体</a></li>
-<li><a href="#%E6%96%9C%E4%BD%93">斜体</a></li>
-</ul>
-        
-          <a class="article-more-a" href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/%E5%AD%A6%E4%B9%A0%E4%B8%80%E4%B8%8Bmarkdown%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2021/06/25/hello-world/" class="archive-article-date">
-  	<time datetime="2021-06-25T14:59:36.572Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a class="header-anchor" href="#Quick-Start">¶</a>Quick Start</h2>
-<h3 id="Create-a-new-post"><a class="header-anchor" href="#Create-a-new-post">¶</a>Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a class="header-anchor" href="#Run-server">¶</a>Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a class="header-anchor" href="#Generate-static-files">¶</a>Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a class="header-anchor" href="#Deploy-to-remote-sites">¶</a>Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -467,9 +214,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
